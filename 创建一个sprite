@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta id="viewport" name="viewport" content="width=device-width,user-scalable=no" />
+		<script type="text/javascript" src="./phaser.min.js"></script>
+        <title>flappybird</title>
+		<style type="text/css">
+			body {
+				margin:0px;
+			}
+		</style>
+<body>
+	<script>
+		//开启一个游戏 宽 高 渲染的方式 canvas || webgl 绑定的对象的名称
+		var game = new Phaser.Game(800,600,Phaser.AUTO,"flappybrid");
+
+		var startState = {
+		    //预加载处理
+		    preload:function () {
+				game.load.image("brid","flappybird/atlas.png"); //加载当前的对象
+            },
+			//创建相关的函数的操作
+			create:function () {
+				var test = game.add.sprite(200,600,"brid"); //设置当前 x,y 素材的名称
+				test.anchor.set(0.5)  //设置中心点的
+            }
+            ,
+			//更新动态
+			update:function () {
+            }
+		};
+		/*
+		* 创建游戏场景素材 设置开始  添加到场景中的，名称，和相关的对象化
+		* */
+		game.state.add('start',startState); //场景名称 和场景对象
+		game.state.start('start'); //开启相关的场景
+	</script>
+<div id="flappybrid"></div>
+
+	</body>
+</html>
